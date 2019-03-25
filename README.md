@@ -1,5 +1,5 @@
 # vue-shopping
-vue+vue-router+vuex+webpack实现了一个购物app
+vue+vue-router+vuex+webpack实现一个购物app
 # webapp
 
 > A Vue.js project
