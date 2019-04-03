@@ -13,7 +13,7 @@
 			<ul>
 				<li v-for="(item,index) in allBrand" v-if="nowType==item.type || nowType==0" :key="index" @click="toDetail(item.id)">
 					<!-- 命名路由并用query传值 -->
-					<router-link :to="{name:'detail',query:item}" class="cont-li">
+					<router-link :to="'/detail/'+item.id" class="cont-li">
 						<img class="pic" :src="item.brand_pic_url" alt="">
 						<div>
 							<span class="name">{{item.brand_name}}</span>
@@ -28,6 +28,8 @@
 <script>
 	import Vue from 'vue'
 	import VueRouter from 'vue-router'
+	import Axios from 'axios'
+	import store from '../../store/store.js'
 	import LocalDB from '../com/localDB'
 	
 	Vue.use(VueRouter)
@@ -38,7 +40,8 @@
 				nowType:0,
 				nowIndex:0,
 				types:{},
-				dataCart:{},
+				dataCart:[],
+				dataDetail:[],
 				allBrand:{}
 			}
 		},
@@ -57,16 +60,15 @@
 				// console.log(this.allBrand)
 				//console.log(1)
 			},
-			toDetail(id){
-				let localDB = new LocalDB('dataDetail')
-				this.$http.get('../../static/data/cate.json').then((response)=>{
+			toDetail(){
+				// let localDB = new LocalDB('dataDetail')
+				Axios.get('../../static/data/cate.json').then((response)=>{
 					this.dataDetail = response.data
 					this.detailData = this.dataDetail.data.allBrand
-// 					Array.from(this.detailData).forEach(brand=>{
-// 						brand.now_id = id
-// 					})
-					localDB.set(this.detailData)
-					//console.log(this.detailData)
+					
+					this.$store.commit('addData',response.data.data.allBrand)
+				}).catch((error)=>{
+					console.log(error)
 				})
 			},
 			clickType(type,index){

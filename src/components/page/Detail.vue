@@ -3,20 +3,20 @@
 		<div class="detail-head">
 			<p>商品详情</p>
 		</div>
-		<div v-for="(item,index) in detailData" :key="index">
+		<div>
 			<div class="pic">
-				<img :src="item.brand_pic_url" alt="">
+				<img :src="Cate.brand_pic_url" alt="">
 			</div>
 			<div class="cont">
-				<p class="name">{{item.brand_name}}</p>
-				<span class="price">￥{{item.brand_price}}</span>
-				<span class="stock">{{item.stock}}库存</span>
+				<p class="name">{{Cate.brand_name}}</p>
+				<span class="price">￥{{Cate.brand_price}}</span>
+				<span class="stock">{{Cate.stock}}库存</span>
 			</div>
 			<div class="bot">
 				<div class="goods-counter">
-					<a href="javascript:;" class="btn-sub" @click="changeNum(-1,item)"> - </a>
-					<input type="text" class="goods-num" readonly="readonly" v-model="item.brand_num">
-					<a href="javascript:;" class="btn-add" @click="changeNum(1,item)"> + </a>
+					<a href="javascript:;" class="btn-sub" @click="changeNum(-1,Cate)"> - </a>
+					<input type="text" class="goods-num" readonly="readonly" v-model="Cate.brand_num">
+					<a href="javascript:;" class="btn-add" @click="changeNum(1,Cate)"> + </a>
 				</div>
 				<!-- <router-link class="add-cart" v-on:click.native="addCart" to="/cart">加入购物车</router-link> -->
 				<a class="add-cart" href="javascript:;" @click="addCart()">加入购物车</a>
@@ -30,6 +30,7 @@
 <script>
 	import Vue from 'vue'
 	import VueRouter from 'vue-router'
+	import Axios from 'axios'
 	import LocalDB from '../com/localDB'
 	
 	Vue.use(VueRouter);
@@ -39,25 +40,14 @@
 			return {
 				nowID:150,
 				flag:false,
+				id:0,
 				Cate:{},
-				detailData:[{
-					brand_pic_url:'',
-					brand_name:'',
-					brand_price:'',
-					stock:'',
-					brand_num:'',
-					isSelect:false
-				}]
+				detailData:[]
 			}
 		},
-// 		mounted(){
-// 			this.$nextTick(()=>{
-// 				this.getDataDetail()
-// 			})
-// 		},
-		created(){
-			this.getDataDetail()
-			this.$store.dispatch('changeHeaderTitle','详情')
+		mounted(){
+			this.id = this.$route.params.id
+			this.getDataDetail(this.id)
 		},
 		methods:{
 			changeNum(num,data){
@@ -70,53 +60,42 @@
 					data.brand_num = data.brand_num + 1;
 				}
 			},
-			getDataDetail(){
-// 				let localDB = new LocalDB('dataDetail')
-// 				this.dataDetail = localDB.get('dataDetail')
-// 				console.log(this.dataDetail)
-// 				this.$http.get('../../static/data/cate.json').then((response) =>{
-// 					this.Cate = response.data
-// 					this.detailData = this.Cate.data.allBrand
-// 				},(response)=>{
-// 					//error
-// 				})
-				this.detailData[0].brand_pic_url = this.$route.query.brand_pic_url
-				this.detailData[0].brand_num = this.$route.query.brand_num
-				this.detailData[0].brand_name = this.$route.query.brand_name
-				this.detailData[0].brand_price = this.$route.query.brand_price
-				this.detailData[0].stock = this.$route.query.stock
-				this.detailData[0].isSelect = this.$route.query.isSelect
-				// console.log(this.detailData[0])
-// 				//params
-// 				this.detailData[0].brand_pic_url = this.$route.params.brand_pic_url
-// 				this.detailData[0].brand_num = this.$route.params.brand_num
-// 				this.detailData[0].brand_name = this.$route.params.brand_name
-// 				this.detailData[0].brand_price = this.$route.params.brand_price
-// 				this.detailData[0].stock = this.$route.params.stock
-// 				this.detailData[0].isSelect = this.$route.params.isSelect
-// 				console.log(this.detailData[0])
+			getDataDetail(id){
+				Axios.get('../../static/data/cate.json').then((response)=>{
+					this.detailData = response.data.data.allBrand
+					// console.log(this.detailData)
+					for(var i=0;i<this.detailData.length;i++){
+						if(this.detailData[i].id==id){
+							this.Cate = this.detailData[i]
+							return;
+						}
+					}
+				}).catch((error)=>{
+					console.log(error)
+				})
 			},
 			addCart(){
-				this.flag = !this.flag;
-				let localDB = new LocalDB('dataCart')
-				if(localDB.get('dataCart').length===0||localDB.get('dataCart').data.carts.length===0){
-					this.$http.get('../../static/data/cart.json').then((response)=>{
-						this.dataCart = response.data
-						this.carts = this.dataCart.data.carts
-						localDB.set(this.dataCart)
-						let dataCart = localDB.get('dataCart')
-						dataCart.data.carts.unshift(this.detailData[0])
-						localDB.set(dataCart)
-						// router.push({path:'cart'})
-					},(response)=>{
-						//error
-					})
-				}else{
-					let dataCart = localDB.get('dataCart')
-					dataCart.data.carts.unshift(this.detailData[0])
-					localDB.set(dataCart)
-					// router.push({path:'cart'})
-				}
+ 				this.flag = !this.flag;
+// 				let localDB = new LocalDB('dataCart')
+// 				if(localDB.get('dataCart').length===0||localDB.get('dataCart').data.carts.length===0){
+// 					this.$http.get('../../static/data/cart.json').then((response)=>{
+// 						this.dataCart = response.data
+// 						this.carts = this.dataCart.data.carts
+// 						localDB.set(this.dataCart)
+// 						let dataCart = localDB.get('dataCart')
+// 						dataCart.data.carts.unshift(this.detailData[0])
+// 						localDB.set(dataCart)
+// 						// router.push({path:'cart'})
+// 					},(response)=>{
+// 						//error
+// 					})
+// 				}else{
+// 					let dataCart = localDB.get('dataCart')
+// 					dataCart.data.carts.unshift(this.detailData[0])
+// 					localDB.set(dataCart)
+// 					// router.push({path:'cart'})
+// 				}
+				this.$store.commit('addCart',this.Cate)
 			},
 			beforeEnter(el){
 			    el.style.transform = "translate(0px, 0px)"

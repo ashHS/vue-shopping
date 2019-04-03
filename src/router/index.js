@@ -33,8 +33,7 @@ export default new Router({
 		  component: Cate
 		},
 		{
-			path:'/detail',
-			name:'detail',
+			path:'/detail/:id',
 			component:Detail
 		}
   ]

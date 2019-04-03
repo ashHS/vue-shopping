@@ -9,7 +9,7 @@
 			</p>
 			<div class="cont-main cont-temai">
 				<span v-for="(item,index) in temai" :key="index">
-					<router-link :to="{name:'detail',query:item}" class="cont-one">
+					<router-link :to="'/detail/'+item.id" class="cont-one">
 						<span class="name">{{item.brand_name}}</span>
 						<span class="price">￥{{item.brand_price}}</span>
 						<img class="pic" :src="item.brand_pic_url"/>
@@ -24,14 +24,14 @@
 			</p>
 			<div class="cont-main cont-rexiao">
 				<span v-for="(item,index) in rexiao" v-if="index==0" :key="index">
-					<router-link :to="{name:'detail',query:item}" class="cont-left">
+					<router-link :to="'/detail/'+item.id" class="cont-left">
 						<span class="name">{{item.brand_name}}</span>
 						<span class="desc">{{item.brand_desc}}</span>
 						<img class="pic" :src="item.brand_pic_url" alt="">
 					</router-link>
 				</span>
 				<div class="cont-right" v-for="(item,index) in rexiao" v-if="index==1" :key="index">
-					<router-link :to="{name:'detail',query:item}" class="cont-right-one">
+					<router-link :to="'/detail/'+item.id" class="cont-right-one">
 						<p class="text">
 							<span class="name">{{item.brand_name}}</span>
 							<span class="desc">{{item.brand_desc}}</span>
@@ -39,7 +39,7 @@
 						<img class="pic" :src="item.brand_pic_url"/>
 					</router-link>
 					<span v-for="(item,index) in rexiao" v-if="index==2" :key="index">
-						<router-link :to="{name:'detail',query:item}" class="cont-right-one">
+						<router-link :to="'/detail/'+item.id" class="cont-right-one">
 							<p class="text">
 								<span class="name">{{item.brand_name}}</span>
 								<span class="desc">{{item.brand_desc}}</span>
@@ -58,7 +58,7 @@
 			<div class="cont-main cont-jingpin">
 				<ul>
 					<li v-for="(item,index) in jingpin" :key="index">
-						<router-link :to="{name:'detail',query:item}" class="cont-li">
+						<router-link :to="'/detail/'+item.id" class="cont-li">
 							<img class="pic" :src="item.brand_pic_url" alt="">
 							<p class="name">{{item.brand_name}}</p>
 							<p class="price">{{item.brand_price}}</p>

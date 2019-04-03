@@ -21,7 +21,7 @@
 						<h5 class="goods-name">{{item.brand_name}}</h5>
 						<div class="goods-count">
 							<a href="javascript:;" class="btn-sub" @click="changeNum(-1,item)">-</a>
-							<input type="text" class="goods-num" readonly="readonly" v-model.lazy="item.brand_num">
+							<input type="text" class="goods-num" readonly="readonly" v-model.lazy="item.num">
 							<a href="javascript:;" class="btn-add" @click="changeNum(1,item)">+</a>
 						</div>
 					</div>
@@ -75,7 +75,7 @@
 				let price = 0
 				Array.from(this.carts).forEach(cart=>{
 					if(cart.isSelect){
-						price += cart.brand_num*cart.brand_price
+						price += cart.num*cart.brand_price
 					}
 				})
 				return price
@@ -83,61 +83,17 @@
 		},
 		methods:{
 			getDataCart(){
-				let localDB = new LocalDB('dataCart')
-				if(localDB.get('dataCart').length===0||localDB.get('dataCart').data.carts.length===0){
-					this.$http.get('../../static/data/cart.json').then((response)=>{
-						this.dataCart = response.data
-						this.carts = this.dataCart.data.carts
-						localDB.set(this.dataCart)
-					},(response)=>{
-						//error
-					})
-				}else{
-					this.dataCart = localDB.get('dataCart');
-					this.carts = this.dataCart.data.carts;
-					// this.data = this.dataCart.data.carts;
-// 					if(this.data.length===1){
-// 						this.carts = this.data
-// 						
-// 					}else{
-// 						var data_length = this.data.length
-// 						this.carts[0] = this.data[data_length-1]
-// 						 console.log(this.carts.length+'this.carts.length')
-// 						for(var i=0;i<this.cart_length;i++){
-// 							if(this.data[0].brand_name===this.carts[i].brand_name){
-// 								// console.log(i)
-// 								this.carts[i].brand_num+=this.data[0].brand_num;
-// 								return;
-// 							}else{
-// 								// console.log(i)
-// 								var length = this.cart_length;
-// 								console.log(this.cart_length+'cart_length')
-// 								this.carts[length] = this.data[0];
-// 								this.cart_length = this.carts.length;
-// 								console.log(this.cart_length+'cart_length')
-// 								return;
-// 							}
-// 						var data_length = this.data.length;
-// 						this.carts[0] = this.data[data_length-1]
-// 						console.log(this.carts.length)
-// 						for(var i=0;i<this.cart_length;i++){
-// 							if(this.data[0].brand_name===this.carts[i].brand_name){
-// 								// console.log(i)
-// 								this.carts[i].brand_num+=this.data[0].brand_num;
-// 								return;
-// 							}
-// 						}	
-					// }
-				}
+				this.carts = this.$store.state.cart
+				
 			},
 			changeNum(change,carts){
 				if(change==-1){
-					if(carts.brand_num>=2){
-						carts.brand_num = carts.brand_num-1
+					if(carts.num>=2){
+						carts.num = carts.num-1
 					}
 				}else{
-					if(carts.brand_num<carts.stock){
-						carts.brand_num = carts.brand_num+1
+					if(carts.num<carts.stock){
+						carts.num = carts.num+1
 					}
 				}
 			},
@@ -145,9 +101,9 @@
 			deleteGoods(index,carts){
 				carts.splice(index,1)
 				//删除本地存储里的数据
-				let localDB = new LocalDB('dataCart')
-				this.dataCart.data.carts = this.carts
-				localDB.set(this.dataCart)
+// 				let localDB = new LocalDB('dataCart')
+// 				this.dataCart.data.carts = this.carts
+// 				localDB.set(this.dataCart)
 			},
 			select(carts){
 				carts.isSelect = !carts.isSelect
