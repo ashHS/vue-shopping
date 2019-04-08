@@ -1,0 +1,207 @@
+{
+    "state": 1,
+    "msg": "success",
+    "data": {
+        "types": [
+            {
+                "type_name": "全部",
+                "type_now": 0
+            },
+            {
+                "type_name": "母婴",
+                "type_now": 1
+            },
+            {
+                "type_name": "鞋包饰品",
+                "type_now": 2
+            },
+            {
+                "type_name": "食品",
+                "type_now": 3
+            },
+            {
+                "type_name": "数码家电",
+                "type_now": 4
+            },
+            {
+                "type_name": "居家百货",
+                "type_now": 5
+            }
+        ],
+        "allBrand": [
+            {
+                "id": 148,
+				"now_id":147,
+                "type": 4,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 558,
+                "brand_name": "Beats EP头戴式耳机",
+                "brand_desc": "商品描述商品描述",
+				"color":["红色","白色","黑色"],
+				"selectColor":"",
+				"brand_sales": 1872,
+                "brand_pic_url": "http://img11.360buyimg.com/n1/s528x528_jfs/t3109/194/2435573156/46587/e0e867ac/57e10978N87220944.jpg!q70.jpg"
+            },
+            {
+                "id": 149,
+				"now_id":148,
+                "type": 3,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 60,
+                "brand_name": "雀巢（Nestle）高钙成人奶粉",
+                "brand_desc": "商品描述商品描述",
+				"color":"",
+				"brand_sales": 2374,
+                "brand_pic_url": "http://m.360buyimg.com/babel/jfs/t5197/28/400249159/97561/304ce550/58ff0dbeN88884779.jpg!q50.jpg.webp"
+            },
+            {
+                "id": 150,
+				"now_id":148,
+                "type": 5,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+				"color":["黑色","黑色带蒸片","橙黄色","橙黄色带蒸片"],
+				"selectColor":"",
+                "brand_price": 216,
+                "brand_name": "煎炒烹炸一锅多用",
+                "brand_desc": "商品描述商品描述",
+				"brand_sales": 351,
+                "brand_pic_url": "http://gw.alicdn.com/tps/TB19OfQRXXXXXbmXXXXL6TaGpXX_760x760q90s150.jpg_.webp"
+            },
+            {
+                "id": 151,
+				"now_id":148,
+                "type": 2,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 585,
+                "brand_name": "ANNE KLEIN 潮流经典美式轻奢",
+                "brand_desc": "商品描述商品描述",
+				"color":["10-9442RGBL","10-9442RGLP","10-9442RGMV","10-9442RGOL","10-9442RGNV","10-9442CHHY"],
+				"selectColor":"",
+				"brand_sales": 465,
+                "brand_pic_url": "http://gw.alicdn.com/tps/TB1l5psQVXXXXcXaXXXL6TaGpXX_760x760q90s150.jpg_.webp"
+            },
+            {
+                "id": 152,
+				"now_id":148,
+                "type": 1,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 3099,
+                "brand_name": "乐高EV3机器人积木玩具",
+                "brand_desc": "商品描述商品",
+				"color":["EV3第三代机器人"],
+				"selectColor":"",
+				"brand_sales": 165,
+                "brand_pic_url": "https://m.360buyimg.com/mobilecms/s357x357_jfs/t6490/168/1052550216/653858/9eef28d1/594922a8Nc3afa743.jpg!q50.jpg"
+            },
+            {
+                "id": 153,
+				"now_id":148,
+                "type": 2,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 10967,
+                "brand_name": "全球购 路易威登（Louis Vuitton）新款女士LV印花手袋 M41112",
+                "brand_desc": "商品描述商品",
+				"color":["m41112"],
+				"selectColor":"",
+				"brand_sales": 6,
+                "brand_pic_url": "https://m.360buyimg.com/n1/s220x220_jfs/t1429/17/1007119837/464370/310392f4/55b5e5bfN75daf703.png!q70.jpg"
+            },
+            {
+                "id": 154,
+				"now_id":148,
+                "type": 4,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 805,
+                "brand_name": "Kindle Paperwhite3 黑色经典版电纸书",
+                "brand_desc": "商品描述商品描述",
+				"color":["标配版","高配版"],
+				"selectColor":"",
+				"brand_sales": 395,
+                "brand_pic_url": "http://img12.360buyimg.com/n1/s528x528_jfs/t4954/76/635213328/51972/ec4a3c3c/58e5f717N4031d162.jpg!q70.jpg"
+            },
+            {
+                "id": 155,
+				"now_id":148,
+                "type": 2,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 269,
+                "brand_name": "DELSEY 男士双肩背包",
+                "brand_desc": "商品描述商品描述",
+				"color":["灰色","粉色","蓝色"],
+				"selectColor":"",
+				"brand_sales": 274,
+                "brand_pic_url": "http://gw.alicdn.com/tps/LB1HL0mQVXXXXbzXVXXXXXXXXXX.png"
+            },
+            {
+                "id": 156,
+				"now_id":148,
+                "type": 1,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 89,
+                "brand_name": "荷兰 天赋力 Herobaby 婴儿配方奶粉 4段 1岁以上700g",
+                "brand_desc": "商品描述商品描述",
+				"color":"",
+				"brand_sales": 234,
+                "brand_pic_url": "http://m.360buyimg.com/babel/s330x330_jfs/t4597/175/4364374663/125149/4fbbaf21/590d4f5aN0467dc26.jpg!q50.jpg.webp"
+            },
+            {
+                "id": 157,
+				"now_id":148,
+                "type": 3,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 19.9,
+                "brand_name": "【全球购】越南acecook河粉牛肉河粉特产 速食即食方便面粉丝 牛肉河粉米粉65克*5袋",
+                "brand_desc": "商品描述商品描述",
+				"color":"",
+				"brand_sales": 217,
+                "brand_pic_url": "https://m.360buyimg.com/mobilecms/s357x357_jfs/t3169/228/5426689121/95568/d463e211/586dbf56N37fcd503.jpg!q50.jpg"
+            },
+            {
+                "id": 158,
+				"now_id":148,
+                "type": 2,
+				"stock":13,
+				"isSelect":false,
+				"brand_num":1,
+				"num":1,
+                "brand_price": 3580,
+                "brand_name": "正品FENDI/芬迪女包钱包女长款 百搭真皮钱夹 女士小怪兽手拿包",
+                "brand_desc": "商品描述商品描述",
+				"color":["浅粉色","黑色","粉红","蓝色","浅灰色"],
+				"selectColor":"",
+				"brand_sales": 23,
+                "brand_pic_url": "http://img.alicdn.com/imgextra/i3/TB16avCQXXXXXcsXpXXXXXXXXXX_!!0-item_pic.jpg_400x400q60s30.jpg_.webp"
+            }
+        ]
+    }
+}
