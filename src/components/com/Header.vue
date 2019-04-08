@@ -1,16 +1,23 @@
 <template>
 	<div class="s-header">
+<<<<<<< HEAD
 		<div v-if="isCart">
 			<a class="right" href="javascript:;" @click="changeManage()" v-if="!wan">管理</a>
 			<a class="right" href="javascript:;" @click="changeFinish()" v-if="wan">完成</a>
 		</div>
 	    <a class="left" @click="goBack" href="javascript:;"><img src="../../assets/left.png" alt=""></a>
 	    <h4 class="center">{{msg}}</h4>
+=======
+	    <a class="right" href="javascript:;">{{headerTitle}}</a>
+	    <a class="left" @click="goBack" href="javascript:;"><img src="../../assets/left.png" alt=""></a>
+	    <h4 class="center">芝麻科技</h4>
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	</div>
 </template>
 <script>
 	export default {
 		data(){
+<<<<<<< HEAD
 			return {
 				msg:"芝麻科技",
 				// 管理、完成
@@ -44,6 +51,18 @@
 				this.$store.commit("changeManage",this.manage);
 				this.finish = !this.finish;
 				this.$store.commit("changeFinish",this.finish);
+=======
+			return {}
+		},
+		computed:{
+			headerTitle(){
+				return this.$store.getters.getHaederTitle
+			}
+		},
+		methods:{
+			goBack:function(){
+				this.$router.go(-1)
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 			}
 		}
 	}

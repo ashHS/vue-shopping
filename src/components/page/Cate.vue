@@ -15,8 +15,13 @@
 					<!-- 命名路由并用query传值 -->
 					<router-link :to="'/detail/'+item.id" class="cont-li">
 						<img class="pic" :src="item.brand_pic_url" alt="">
+<<<<<<< HEAD
 						<div class="goods">
 							<p class="name">{{item.brand_name}}</p>
+=======
+						<div>
+							<span class="name">{{item.brand_name}}</span>
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 							<p class="price">￥{{item.brand_price}}</p>
 						</div>
 					</router-link>
@@ -46,12 +51,20 @@
 			}
 		},
 		created(){
+<<<<<<< HEAD
 			this.getDataCate();
 			this.$store.commit("changeHeaderTitle",false)
 		},
 		methods:{
 			getDataCate(){
 				Axios.get('../../static/data/cate.json').then((response) =>{
+=======
+			this.getDataCate()
+		},
+		methods:{
+			getDataCate(){
+				this.$http.get('../../static/data/cate.json').then((response) =>{
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 					this.dataCart = response.data
 					this.types = this.dataCart.data.types
 					this.allBrand = this.dataCart.data.allBrand
@@ -66,7 +79,11 @@
 				Axios.get('../../static/data/cate.json').then((response)=>{
 					this.dataDetail = response.data
 					this.detailData = this.dataDetail.data.allBrand
+<<<<<<< HEAD
 					console.log(this.detailData[0].color)
+=======
+					
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 					this.$store.commit('addData',response.data.data.allBrand)
 				}).catch((error)=>{
 					console.log(error)
@@ -91,7 +108,11 @@
 	  background: #f6f6f6;
 	  }
 	  .nav-out{
+<<<<<<< HEAD
 	    /* // width: 4.5rem; */
+=======
+	    // width: 4.5rem;
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	    width: 4.8rem;
 	    /* height: 8.5rem; //动态变动 */
 	    overflow-x: hidden;
@@ -135,9 +156,14 @@
 	    width: 100%;
 	  }
 	  .cont-li{
+<<<<<<< HEAD
 		position: relative;
 	    display: inline-block;
 	    /* margin-bottom: .4rem; */
+=======
+	    display: inline-block;
+	    margin-bottom: .4rem;
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	    margin-left: .2rem;
 	    padding: .275rem;
 	    border-radius: .2rem;
@@ -157,6 +183,7 @@
 	      height: 3rem;
 		  float: left;
 	    }
+<<<<<<< HEAD
 		.goods .name{
 			font-size: 15px;
 			color: #000;
@@ -170,5 +197,16 @@
 			position: absolute;
 			bottom: 10px;
 			right: 20px;
+=======
+		.name{
+			font-size: 16px;
+			color: #000;
+			
+		}
+		.cont-li div p{
+			margin: 0;
+			margin-left: 80px;
+			color: #FFA500;
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 		}
 </style>

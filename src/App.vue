@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <Header></Header>
+<<<<<<< HEAD
 	<router-view></router-view>
 	<NavBar></NavBar>
+=======
+		<router-view></router-view>
+		<NavBar></NavBar>
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
   </div>
 </template>
 

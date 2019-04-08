@@ -6,7 +6,10 @@ import router from './router'
 import axios from 'axios'
 import store from './store/store.js'
 
+<<<<<<< HEAD
 // 可以修改原型链 然后使用$http
+=======
+>>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
