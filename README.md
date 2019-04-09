@@ -30,4 +30,4 @@ npm run build
 
 6.用户中心
 
-axios 请求数据 ，localStorage 本地存储
+axios 请求数据 
