@@ -4,12 +4,6 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-<<<<<<< HEAD
-// // 引入jQuery
-// const webpack = require("webpack")
-
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -44,10 +38,6 @@ module.exports = {
       '@': resolve('src'),
     }
   },
-<<<<<<< HEAD
-	
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
   module: {
     rules: [
       //...(config.dev.useEslint ? [createLintingRule()] : []),
@@ -107,17 +97,5 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-<<<<<<< HEAD
-  },
-	// 引入jquery
-// 	plugins:[
-// 		new webpack.optimize.CommonsChunkPlugins('common.js'),
-// 		new webpack.ProvidePlugin({
-// 			jQuery:"jquery",
-// 			$:"jquery"
-// 		})
-// 	]
-=======
   }
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 }

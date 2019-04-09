@@ -9,7 +9,6 @@
 			</div>
 			<div class="cont">
 				<p class="name">{{Cate.brand_name}}</p>
-<<<<<<< HEAD
 				<p class="desc">{{Cate.brand_desc}}</p>
 				<span class="price">￥{{Cate.brand_price}}</span>
 				<span class="stock">{{Cate.stock}}库存</span>
@@ -24,10 +23,6 @@
 						{{item}}
 					</li>
 				</ul>
-=======
-				<span class="price">￥{{Cate.brand_price}}</span>
-				<span class="stock">{{Cate.stock}}库存</span>
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 			</div>
 			<div class="bot">
 				<div class="goods-counter">
@@ -59,7 +54,6 @@
 				flag:false,
 				id:0,
 				Cate:{},
-<<<<<<< HEAD
 				detailData:[],
 				my_index:-1,
 				color:[],
@@ -76,14 +70,6 @@
 			this.id = this.$route.params.id
 			this.getDataDetail(this.id);
 			this.$store.commit("changeHeaderTitle",false)
-=======
-				detailData:[]
-			}
-		},
-		mounted(){
-			this.id = this.$route.params.id
-			this.getDataDetail(this.id)
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 		},
 		methods:{
 			changeNum(num,data){
@@ -96,7 +82,6 @@
 					data.brand_num = data.brand_num + 1;
 				}
 			},
-<<<<<<< HEAD
 			// 选择颜色
 			select(index){
 				this.showAlert = false;
@@ -107,8 +92,6 @@
 				// 确认是否选择了颜色
 				this.selectFlag = true;
 			},
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 			getDataDetail(id){
 				Axios.get('../../static/data/cate.json').then((response)=>{
 					this.detailData = response.data.data.allBrand
@@ -116,11 +99,8 @@
 					for(var i=0;i<this.detailData.length;i++){
 						if(this.detailData[i].id==id){
 							this.Cate = this.detailData[i]
-<<<<<<< HEAD
 							this.color = this.Cate.color
-							console.log(this.Cate);
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
+							// this.Cate.selectColor = this.$store.state.selectColor
 							return;
 						}
 					}
@@ -129,13 +109,12 @@
 				})
 			},
 			addCart(){
-<<<<<<< HEAD
 				// 如果有规格且已选
  				if(this.selectFlag&&this.Cate.color!=''){
 					this.flag = !this.flag;
 					console.log(this.my_index)
-					this.$store.commit("addColor",this.my_index)
-					
+					this.$store.commit("addColor",this.my_index)	
+					this.$store.commit("addSelectColor",this.selectColor)
 					this.$store.commit('addCart',this.Cate)
 				}else if(this.Cate.color!=''){//有规格但没选
 					this.showAlert = true;
@@ -143,36 +122,12 @@
 					this.flag = !this.flag;
 					console.log(this.my_index)
 					this.$store.commit("addColor",this.my_index)
-					
+					this.$store.commit("addSelectColor",this.selectColor)
 					this.$store.commit('addCart',this.Cate)
 				}
 				
 			},
 
-=======
- 				this.flag = !this.flag;
-// 				let localDB = new LocalDB('dataCart')
-// 				if(localDB.get('dataCart').length===0||localDB.get('dataCart').data.carts.length===0){
-// 					this.$http.get('../../static/data/cart.json').then((response)=>{
-// 						this.dataCart = response.data
-// 						this.carts = this.dataCart.data.carts
-// 						localDB.set(this.dataCart)
-// 						let dataCart = localDB.get('dataCart')
-// 						dataCart.data.carts.unshift(this.detailData[0])
-// 						localDB.set(dataCart)
-// 						// router.push({path:'cart'})
-// 					},(response)=>{
-// 						//error
-// 					})
-// 				}else{
-// 					let dataCart = localDB.get('dataCart')
-// 					dataCart.data.carts.unshift(this.detailData[0])
-// 					localDB.set(dataCart)
-// 					// router.push({path:'cart'})
-// 				}
-				this.$store.commit('addCart',this.Cate)
-			},
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 			beforeEnter(el){
 			    el.style.transform = "translate(0px, 0px)"
 			},
@@ -187,26 +142,17 @@
 			afterEnter(el){
 			    this.flag = !this.flag
 			}
-<<<<<<< HEAD
 			
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 		}
 	}
 </script>
 <style scoped>
 	.s-detail{
 		position: relative;
-<<<<<<< HEAD
 		/* height: 550px; */
 		background: #eee;
 		margin-top: -10px;
 		
-=======
-		height: 510px;
-		background: #eee;
-		margin-top: -10px;
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	}
 	.detail-head p{
 		padding-top: 10px;
@@ -219,16 +165,12 @@
 	.pic img{
 		height: 10rem;
 		width: 66%;
-<<<<<<< HEAD
 		border-radius: 20px;
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	}
 	.cont{
 		margin: .3rem 0;
 		padding: 0 .375rem;
 		text-align: left;
-<<<<<<< HEAD
 		margin-bottom: 120px;
 		padding-bottom: 5px;
 	}
@@ -243,11 +185,6 @@
 		font-size: .6rem;
 		float: right;
 		margin-right: 20px;
-=======
-	}
-	.cont .name{
-		font-size: .65rem;
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	}
 	.cont .price{
 		text-align: center;
@@ -259,7 +196,6 @@
 		color: #333;
 		margin-left: 20px;
 	}
-<<<<<<< HEAD
 	.cont div{
 		position: relative;
 		height: 20px;
@@ -296,8 +232,6 @@
 		background: #F0AD4E;
 		color: #fff;
 	}
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	.bot .goods-counter{
 		height: .75rem;
 		display: inline-block;

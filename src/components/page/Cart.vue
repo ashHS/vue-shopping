@@ -7,19 +7,14 @@
 			<ul>
 				<li class="cont-one" v-for="(item,index) in carts" :key="index">
 					<div class="item-selector">
-<<<<<<< HEAD
 						<div class="icon-selector" v-bind:class="{'selector-active':item.isSelect}" @click="select(item,index)">
-=======
-						<div class="icon-selector" v-bind:class="{'selector-active':item.isSelect}" @click="select(item)">
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 							<svg t="1504061791962" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2922" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12">
 							    <path d="M908.288 127.488l-537.6 537.6-254.976-254.976L0 525.824l254.976 254.976 115.712 115.712L486.4 780.8l537.6-537.6z"
 							        fill="#ffffff" p-id="2923"></path>
 							</svg>
 						</div>
 					</div>
-<<<<<<< HEAD
-					<router-link :to="'/detail/'+item.id" class="goods-a">
+					<router-link :to="'/detail/'+item.index" class="goods-a">
 						<img class="goods-img" :src="item.brand_pic_url" alt="">
 					</router-link>
 					<div class="goods-info">
@@ -34,21 +29,6 @@
 					</div>
 					
 					<!-- <a href="javascript:;" class="goods-delete" @click="deleteGoods(index,carts)">删除</a> -->
-=======
-					<a href="javascript:;" class="goods-a">
-						<img class="goods-img" :src="item.brand_pic_url" alt="">
-					</a>
-					<div class="goods-info">
-						<h5 class="goods-name">{{item.brand_name}}</h5>
-						<div class="goods-count">
-							<a href="javascript:;" class="btn-sub" @click="changeNum(-1,item)">-</a>
-							<input type="text" class="goods-num" readonly="readonly" v-model.lazy="item.num">
-							<a href="javascript:;" class="btn-add" @click="changeNum(1,item)">+</a>
-						</div>
-					</div>
-					<span class="goods-price">￥{{item.brand_price}}</span>
-					<a href="javascript:;" class="goods-delete" @click="deleteGoods(index,carts)">删除</a>
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 				</li>
 			</ul>
 		</div>
@@ -68,12 +48,8 @@
 			<div class="all-price">
 			  <p class="price-p">总计 :<em class="price">￥{{totalPrice}}</em></p>
 			</div>
-<<<<<<< HEAD
 			<a class="btn-counter" v-if="!manage">去结算</a>
 			<a class="btn-counter delete" v-if="manage" @click="deleteGoods()">删除</a>
-=======
-			<a class="btn-counter">去结算</a>
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 		</div>
 	</div>
 </template>
@@ -88,7 +64,6 @@
 		data(){
 			return {
 				checkAllFlag:false,
-<<<<<<< HEAD
 				// 选择颜色的
 				color:[],
 				dataCart:{},
@@ -96,20 +71,11 @@
 				carts:[],
 				data:[],
 				selectIndex:[]
-=======
-				
-				dataCart:{},
-				carts:[],
-				data:[]
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 			}
 		},
 		created(){
 			this.getDataCart()
-<<<<<<< HEAD
 			this.$store.commit("changeHeaderTitle",true)
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 		},
 		computed:{
 			totalPrice(){
@@ -120,28 +86,21 @@
 					}
 				})
 				return price
-<<<<<<< HEAD
 			},
 			manage(){
 				return this.$store.state.manage;
 			},
 			finish(){
 				return this.$store.state.finish;
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 			}
 		},
 		methods:{
 			getDataCart(){
-<<<<<<< HEAD
 				this.carts = this.$store.state.cart;
 				// console.log(this.carts)
 				this.carts.selectColor = this.$store.state.selectColor;
-// 				console.log(this.$store.state.selectColor)
-=======
-				this.carts = this.$store.state.cart
-				
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
+				console.log(this.carts.selectColor)
+				console.log(this.carts)
 			},
 			changeNum(change,carts){
 				if(change==-1){
@@ -156,7 +115,6 @@
 			},
 			// 删除商品
 			deleteGoods(index,carts){
-<<<<<<< HEAD
 				// 删除某些
 				// carts.splice(index,1);
 				if(!this.checkAllFlag){
@@ -185,20 +143,6 @@
 					this.selectIndex.splice(this.selectIndex[index],1);
 					console.log(this.selectIndex)
 				}
-=======
-				carts.splice(index,1)
-				//删除本地存储里的数据
-// 				let localDB = new LocalDB('dataCart')
-// 				this.dataCart.data.carts = this.carts
-// 				localDB.set(this.dataCart)
-			},
-			select(carts){
-				carts.isSelect = !carts.isSelect
-				let checkAllFlag = Array.from(this.carts).every(cart=>{
-					return cart.isSelect
-				})
-				this.checkAllFlag = checkAllFlag
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 			},
 			selectAll(){
 				this.checkAllFlag = !this.checkAllFlag
@@ -232,20 +176,13 @@
 		margin: 0;
 	}
 	.cont-one{
-<<<<<<< HEAD
 		height: 3rem;
-=======
-		height: 2rem;
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 		overflow: hidden;
 		padding: .25rem;
 		border-bottom: 1px solid #eee;
 		list-style: none;
-<<<<<<< HEAD
 		margin-top: -1px;
 		position: relative;
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	}
 	.goods-a{
 		float: left;
@@ -255,16 +192,10 @@
 	}
 	.goods-img{
 		display: inline-block;
-<<<<<<< HEAD
 		width: 2.2rem;
 		height: 2.2rem;
 		margin-right: 5px;
 		margin-top: 5px;
-=======
-		width: 1.8rem;
-		height: 2rem;
-		margin-right: 5px;
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	}
 	/* 单选 */
 	.item-selector {
@@ -295,12 +226,8 @@
 	}
 	.goods-info{
 		float: left;
-<<<<<<< HEAD
 		/* width: 4.2rem; */
 		margin-left: 20px;
-=======
-		width: 4.2rem;
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	}
 	.goods-name{
 		min-width: 7.5rem;
@@ -308,7 +235,6 @@
 		/* 不换行和省略号 */
 		white-space: nowrap;
 		text-overflow: ellipsis;
-<<<<<<< HEAD
 		font-size: .5rem;
 		margin-bottom: .2rem;
 		margin-top: 0;
@@ -328,13 +254,6 @@
 		position: absolute;
 		bottom: 10px;
 		right: 20px;
-=======
-		font-size: .45rem;
-		margin-bottom: .2rem;
-		margin-top: 0;
-		text-align: left;
-		
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	}
 	.goods-count a{
 		padding: .125rem 0;
@@ -348,7 +267,6 @@
 		display: inline-block;
 		font-size: .6rem;
 		color: #fc8637;
-<<<<<<< HEAD
 		margin-top: 5px;
 		float: left;
 	}
@@ -366,17 +284,6 @@
 		border-bottom-left-radius: 4px;
 		color: #fff;
 		font-weight: bold;
-=======
-		margin-right: 50px;
-		margin-top: 23px;
-	}
-	.goods-delete{
-		float: right;
-		height: 2rem;
-		padding: 0 .3rem;
-		font-size: 0.5rem;
-		line-height: 2rem;
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	}
 	.cart-count{
 	  position: fixed;
@@ -411,7 +318,6 @@
 		background: #7A45E5;
 		color: #fff;
 	  }
-<<<<<<< HEAD
 	  .delete{
 		  background: red;
 	  }
@@ -421,8 +327,6 @@
 		  padding: 0 5px;
 		  margin-top: -2px;
 	  }
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 	/* 全选 */
 	.g-selector {
 	    float: left;

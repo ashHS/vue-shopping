@@ -61,11 +61,7 @@
 						<router-link :to="'/detail/'+item.id" class="cont-li">
 							<img class="pic" :src="item.brand_pic_url" alt="">
 							<p class="name">{{item.brand_name}}</p>
-<<<<<<< HEAD
 							<p class="price">￥{{item.brand_price}}</p>
-=======
-							<p class="price">{{item.brand_price}}</p>
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 						</router-link>
 					</li>
 				</ul>
@@ -89,10 +85,7 @@
 			Swiper:Swiper
 		},
 		created(){
-<<<<<<< HEAD
 			this.$store.commit("changeHeaderTitle",false)
-=======
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 			this.getDataIndex()
 		},
 		methods:{
@@ -105,7 +98,7 @@
 				},(response)=>{
 					//error
 				})
-				console.log(this.temai)
+				// console.log(this.temai)
 			}
 		}
 	}
@@ -268,11 +261,7 @@
 	.cont-li .pic{
 		display: block;
 		width: 6.5rem;
-<<<<<<< HEAD
 		height: 6.5rem;
-=======
-		height: 8.125rem;
->>>>>>> a48fef95d6863b6350321dfa699aaf852065181d
 		border-bottom: 1px dashed #eee;
 	}
 </style>
