@@ -27,8 +27,8 @@ var mutations = {
 				for(var i=0;i<state.cart.length;i++){
 					if(state.cart[i].id===data.id){
 						console.log('have')
-						state.cart[i].brand_num+=data.brand_num;
-						state.cart[i].num = state.cart[i].brand_num;
+						state.cart[i].num+=data.brand_num;
+						// state.cart[i].num = state.cart[i].brand_num;
 						flag=1;
 						
 					}
