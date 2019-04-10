@@ -108,7 +108,9 @@
 					console.log(error)
 				})
 			},
-			addCart(){
+			addCart(el){
+// 				el.style.background="red"
+// 				el.style.color="#fff"
 				// 如果有规格且已选
  				if(this.selectFlag&&this.Cate.color!=''){
 					this.flag = !this.flag;
@@ -129,14 +131,14 @@
 			},
 
 			beforeEnter(el){
-			    el.style.transform = "translate(0px, 0px)"
+			    el.style.transform = "translate(20px, 135px)"
 			},
 			enter(el, done){
 			    // el.offsetWidth 强制html渲染动画
 			    // el.offsetWidth 这句话如何不写就不会有动画效果直接渲染的
 			    el.offsetWidth;
-			    el.style.transform = "translate(140px, 113px)";
-			    el.style.transition = "all 1.2s ease";
+			    el.style.transform = "translate(140px, 130px)";
+			    el.style.transition = "all 1s ease";
 			    done()
 			},
 			afterEnter(el){
@@ -278,6 +280,10 @@
 		color: red;
 		border: 1px solid red;
 		border-radius: 4px;
+	}
+	.bot .add-cart:hover{
+		background: red;
+		color: #fff;
 	}
 	.circle{
 		border: solid 1px red;

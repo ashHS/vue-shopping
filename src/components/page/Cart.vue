@@ -46,7 +46,7 @@
 				<span>全选</span>
 			</div>
 			<div class="all-price">
-			  <p class="price-p">总计 :<em class="price">￥{{totalPrice}}</em></p>
+			  <p class="price-p" v-if="!manage">总计 :<strong  class="price">￥{{totalPrice}}</strong></p>
 			</div>
 			<a class="btn-counter" v-if="!manage">去结算</a>
 			<a class="btn-counter delete" v-if="manage" @click="deleteGoods()">删除</a>
@@ -312,8 +312,9 @@
 	      color: #fc8637;
 	    }
 	  .btn-counter{
+		width: 80px;
 	    float: right;
-		padding: 0 .8rem 0 .6rem;
+		/* padding: 0 .8rem 0 .6rem; */
 		font-size: .6rem;
 		background: #7A45E5;
 		color: #fff;

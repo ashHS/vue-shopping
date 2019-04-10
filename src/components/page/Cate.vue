@@ -8,6 +8,15 @@
 					</a>
 				</div>
 			</div>
+			<div class="shai" @click="showSorts = !showSorts">
+				<i class="shai-img"></i>
+				<span>筛选</span><i class="down-arrow"></i>
+			</div>
+			<div class="sort-methods nav" v-if="showSorts">
+				<a href="javascript:;" class="nav-a" :class="{'nav-a-active':index==sortIndex}" @click="clickSort(item.sort_now,index)" v-for="(item,index) in sorts" :key="index">
+					{{item.name}}
+				</a>
+			</div>
 		</div>
 		<div class="cate-cont">
 			<ul>
@@ -40,6 +49,9 @@
 				nowType:0,
 				nowIndex:0,
 				types:{},
+				sorts:{},
+				showSorts:false,
+				sortIndex:0,
 				dataCart:[],
 				dataDetail:[],
 				allBrand:{}
@@ -55,6 +67,8 @@
 					this.dataCart = response.data
 					console.log(this.dataCart)
 					this.types = this.dataCart.data.types
+					this.sorts = this.dataCart.data.sortMethods
+					// console.log(this.)
 					this.allBrand = this.dataCart.data.allBrand
 				},(response)=>{
 					//error
@@ -77,6 +91,9 @@
 			clickType(type,index){
 				this.nowType = type
 				this.nowIndex = index
+			},
+			clickSort(sort,index){
+				this.sortIndex = index
 			}
 		}
 		
@@ -94,14 +111,41 @@
 	  background: #f6f6f6;
 	  }
 	  .nav-out{
-	    /* // width: 4.5rem; */
-	    // width: 4.5rem;
 	    width: 4.8rem;
 	    /* height: 8.5rem; //动态变动 */
 	    overflow-x: hidden;
 	    overflow-y: auto;
 	    border-top: 1px solid #eee;
 	    border-bottom: 1px solid #eee;
+		}
+		.shai{
+			background: #fff;
+			height: 1.5rem;
+			line-height: 1.5rem;
+			text-align: left;
+			padding-left: 35px;
+			position: relative;
+		}
+		.shai .shai-img{
+			background: url(../../assets/shaixuan-1.jpg) no-repeat;
+			display: block;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			left: 5px;
+			bottom: 5px;
+		}
+		.shai span{
+			font-size: .625rem;
+		}
+		.shai .down-arrow{
+			background: url(../../assets/icon_down-arrow.jpg) no-repeat;
+			display: block;
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			bottom: 8px;
+			right: 25px;
 		}
 	    .nav-a{
 	      display: block;
@@ -141,9 +185,7 @@
 	  .cont-li{
 		position: relative;
 	    display: inline-block;
-	    /* margin-bottom: .4rem; */
 	    display: inline-block;
-	    margin-bottom: .4rem;
 	    margin-left: .2rem;
 	    padding: .275rem;
 	    border-radius: .2rem;
@@ -172,7 +214,7 @@
 		.goods .price{
 			margin: 0;
 			color: #FFA500;
-			font-size: 14px;
+			font-size: 12px;
 			position: absolute;
 			bottom: 10px;
 			right: 20px;

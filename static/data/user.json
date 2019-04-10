@@ -1,7 +1,16 @@
 {
     "state": 1,
     "msg": "success",
-    "data": {
-        "info": []
-    }
+    "userData":[
+		{
+			"password":123,
+			"account":123,
+			"phone":12345678901
+		},
+		{
+			"password":321,
+			"account":321,
+			"phone":10987654321
+		}
+	]
 }
