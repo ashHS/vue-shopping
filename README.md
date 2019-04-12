@@ -1,5 +1,5 @@
 # vue-shopping
-vue+vue-router+vuex+webpack实现一个购物app
+vue+vue-router+vuex+webpack实现一个购物app，使用axios来请求数据
 # webapp
 
 > A Vue.js project
@@ -30,5 +30,4 @@ npm run build
 
 6.用户中心
 
-axios 请求数据 
 优化了用户注册登录功能以及增加了商品的排序功能。
