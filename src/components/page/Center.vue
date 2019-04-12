@@ -25,7 +25,7 @@
 		</div>
 		<div class="register" v-if="state=='register'">
 			<p>注册账号</p>
-			<input class="shuru" type="text" placeholder="请输入账号" v-model="regInfo.account">
+			<input class="shuru" type="text" placeholder="请输入账号" v-model="regInfo.account"><!--:value="regInfo.account"-->
 			<input class="shuru" type="password" placeholder="请输入密码" v-model="regInfo.password">
 			<input class="shuru" type="password" placeholder="请再次输入密码" v-model="regInfo.password2">
 			<input class="shuru" type="tel" placeholder="输入手机号" v-model="regInfo.phone">

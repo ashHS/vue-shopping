@@ -14,6 +14,8 @@
 			</div>
 			<div class="sort-methods nav" v-if="showSorts">
 				<a href="javascript:;" class="nav-a" :class="{'nav-a-active':index==sortIndex}" @click="clickSort(item.sort_now,index)" v-for="(item,index) in sorts" :key="index">
+					<i v-if="price==true&&isPrice" :class="{'iconfont icon-paixu-jiangxu':index==2}"></i>
+					<i v-if="price==false&&isPrice" :class="{'iconfont icon-paixu-shengxu':index==2}"></i>
 					{{item.name}}
 				</a>
 			</div>
@@ -27,6 +29,7 @@
 						<div>
 							<span class="name">{{item.brand_name}}</span>
 							<p class="price">￥{{item.brand_price}}</p>
+							<p id="sales">{{item.brand_sales}}人付款</p>
 						</div>
 					</router-link>
 				</li>
@@ -40,6 +43,7 @@
 	import Axios from 'axios'
 	import store from '../../store/store.js'
 	import LocalDB from '../com/localDB'
+	import '../../css/font_nme6qu1ibg/iconfont.css'
 	
 	Vue.use(VueRouter)
 	const router = new VueRouter()
@@ -52,6 +56,9 @@
 				sorts:{},
 				showSorts:false,
 				sortIndex:0,
+				price:'',
+				//当点击price时 为true时升降序箭头出现
+				isPrice:false,
 				dataCart:[],
 				dataDetail:[],
 				allBrand:{}
@@ -94,6 +101,48 @@
 			},
 			clickSort(sort,index){
 				this.sortIndex = index
+				if(this.sorts[index].method=='salesSort'){//按销量
+					this.allBrand.sort(this.compare('brand_sales')) 
+					// 使价格每次都是升序
+					this.price = false
+					// 使升降序箭头消失
+					this.isPrice = false
+				}else if(this.sorts[index].method=='priceSort'){//按价格
+				this.isPrice = true
+				var type = this.price ? 'desc':'asc'//desc 降序 asc 升序
+				this.price = !this.price
+					this.allBrand.sort(this.compare('brand_price',type))
+				}else if(this.sorts[index].method=='setList'){//综合排序
+					this.getDataCate()//如果是综合 就重新获取数据
+					this.price = false
+					this.isPrice = false
+						console.log(1)
+				}
+			},
+			compare(prop,type){
+				type = type||'desc'
+				// console.log(type)
+				var flag1;
+				var flag2;
+				if(type=='asc'){
+					// console.log(1)
+					flag1=1;
+					flag2=-1;
+				}else{
+					flag1=-1;
+					flag2=1;
+				}
+				return function(obj1,obj2){
+					var val1 = obj1[prop],
+					val2 = obj2[prop];
+					if(val1>val2){
+						return flag1
+					}else if(val1<val2){
+						return flag2
+					}else{
+						return 0
+					}
+				}
 			}
 		}
 		
@@ -144,8 +193,8 @@
 			width: 15px;
 			height: 15px;
 			position: absolute;
-			bottom: 8px;
-			right: 25px;
+			bottom: 5px;
+			right: 22px;
 		}
 	    .nav-a{
 	      display: block;
@@ -166,6 +215,18 @@
 	        height: 100%;
 	        border-right: 5px solid #282828;
 	      }
+		/* 升降序箭头 */
+		.icon-paixu-jiangxu,.icon-paixu-shengxu{
+			position: absolute;
+		}
+		.icon-paixu-jiangxu{
+			bottom: 0px;
+			right: 20px;
+		}
+		.icon-paixu-shengxu{
+			bottom: 0px;
+			right: 20px;
+		}
 	.cate-cont{
 	  position: relative;
 	  overflow: hidden;
@@ -198,6 +259,7 @@
 			margin-top: 0;
 			text-align: left;
 			padding-left: 10px;
+			position: relative;
 		}
 	    .pic{
 	      display: inline-block;
@@ -224,9 +286,16 @@
 			color: #000;
 			
 		}
+		#sales{
+			margin-left: 0;
+			color: #333;
+			font-size: 10px;
+			position: absolute;
+			right: 4px;
+			bottom: 2px;
+		}
 		.cont-li div p{
 			margin: 0;
-			margin-left: 80px;
 			color: #FFA500;
 		}
 </style>
