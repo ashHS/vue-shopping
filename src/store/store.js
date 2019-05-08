@@ -9,7 +9,8 @@ var state = {
 		manage:'',
 		finish:'',
 		selectColor:'',
-		my_index:-1
+		my_index:-1,
+		isToDetail:false
 	}
 	
 var mutations = {
@@ -55,6 +56,9 @@ var mutations = {
 		},
 		changeFinish(state,data){
 			state.finish = data
+		},
+		isToDetail(state,data){
+			state.isToDetail = data
 		}
 	}
 // 	actions:{

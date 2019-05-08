@@ -1,10 +1,10 @@
 <template>
 	<div class="s-navbar">
 		<ul class="ul-nav">
-			<li><router-link to="/index"><span><i class="iconfont icon-shouye"></i>首页</span></router-link></li>
-			<li><router-link to="/cate"><span><i class="iconfont icon-tubiao_shangcheng"></i>分类</span></router-link></li>
-			<li><router-link to="/cart"><span><i class="iconfont icon-gouwuche "></i>购物车</span></router-link></li>
-			<li><router-link to="/center"><span><i class="iconfont icon-wode"></i>我的</span></router-link></li>
+			<li @click="toDetail()"><router-link to="/index"><span><i class="iconfont icon-shouye"></i>首页</span></router-link></li>
+			<li @click="toDetail()"><router-link to="/cate"><span><i class="iconfont icon-tubiao_shangcheng"></i>分类</span></router-link></li>
+			<li @click="toDetail()"><router-link to="/cart"><span><i class="iconfont icon-gouwuche "></i>购物车</span></router-link></li>
+			<li @click="toDetail()"><router-link to="/center"><span><i class="iconfont icon-wode"></i>我的</span></router-link></li>
 		</ul>
 	</div>
 </template>
@@ -14,6 +14,12 @@
 	 export default{
 		 data(){
 			 return{}
+		 },
+		 methods:{
+			 // 使左上角的返回箭头消失
+			 toDetail(){
+				 this.$store.commit('isToDetail',false)
+			 }
 		 }
 	 }
 </script>

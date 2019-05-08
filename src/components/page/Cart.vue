@@ -99,7 +99,6 @@
 				this.carts = this.$store.state.cart;
 				// console.log(this.carts)
 				this.carts.selectColor = this.$store.state.selectColor;
-				console.log(this.carts.selectColor)
 				console.log(this.carts)
 			},
 			changeNum(change,carts){
@@ -156,7 +155,7 @@
 </script>
 <style scoped>
 	.s-cart{
-		position: relative;
+		/* position: relative; */
 		margin-top: -10px;
 	}
 	.cart-cont{

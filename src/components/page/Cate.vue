@@ -59,6 +59,7 @@
 				price:'',
 				//当点击price时 为true时升降序箭头出现
 				isPrice:false,
+				isToDetail:true,
 				dataCart:[],
 				dataDetail:[],
 				allBrand:{}
@@ -84,6 +85,9 @@
 				//console.log(1)
 			},
 			toDetail(){
+				this.isToDetail = true
+				console.log(this.isToDetail)
+				this.$store.commit('isToDetail',this.isToDetail)
 				// let localDB = new LocalDB('dataDetail')
 				Axios.get('../../static/data/cate.json').then((response)=>{
 					this.dataDetail = response.data
@@ -232,6 +236,7 @@
 	  overflow: hidden;
 	  margin-top: .25rem;
 	  margin-left: 4.5rem;
+	  margin-bottom: 52px;
 	  background: #ffffff;
 	  }
 	  .cate-cont ul{

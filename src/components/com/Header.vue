@@ -4,7 +4,7 @@
 			<a class="right" href="javascript:;" @click="changeManage()" v-if="!wan">管理</a>
 			<a class="right" href="javascript:;" @click="changeFinish()" v-if="wan">完成</a>
 		</div>
-	    <a class="left" @click="goBack" href="javascript:;"><img src="../../assets/left.png" alt=""></a>
+	    <a class="left" @click="goBack" href="javascript:;" v-if="isToDetail"><img src="../../assets/left.png" alt=""></a>
 	    <h4 class="center">{{msg}}</h4>
 	</div>
 </template>
@@ -24,10 +24,14 @@
 		computed: {
 			isCart(){
 				return this.$store.state.isCart
+			},
+			isToDetail(){
+				return this.$store.state.isToDetail
 			}
 		},
 		methods:{
 			goBack(){
+				this.$store.commit('isToDetail',false)
 				this.$router.go(-1)
 			},
 			// 管理是否完成

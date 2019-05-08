@@ -73,7 +73,7 @@
                 "brand_price": 60,
                 "brand_name": "雀巢（Nestle）高钙成人奶粉",
                 "brand_desc": "商品描述商品描述",
-				"color":"",
+				"color":["标准装"],
 				"brand_sales": 2374,
                 "brand_pic_url": "http://m.360buyimg.com/babel/jfs/t5197/28/400249159/97561/304ce550/58ff0dbeN88884779.jpg!q50.jpg.webp"
             },
@@ -184,7 +184,7 @@
                 "brand_price": 89,
                 "brand_name": "荷兰 天赋力 Herobaby 婴儿配方奶粉 4段 1岁以上700g",
                 "brand_desc": "商品描述商品描述",
-				"color":"",
+				"color":["标准装"],
 				"brand_sales": 234,
                 "brand_pic_url": "http://m.360buyimg.com/babel/s330x330_jfs/t4597/175/4364374663/125149/4fbbaf21/590d4f5aN0467dc26.jpg!q50.jpg.webp"
             },
@@ -199,7 +199,7 @@
                 "brand_price": 19.9,
                 "brand_name": "【全球购】越南acecook河粉牛肉河粉特产 速食即食方便面粉丝 牛肉河粉米粉65克*5袋",
                 "brand_desc": "商品描述商品描述",
-				"color":"",
+				"color":["标准装"],
 				"brand_sales": 217,
                 "brand_pic_url": "https://m.360buyimg.com/mobilecms/s357x357_jfs/t3169/228/5426689121/95568/d463e211/586dbf56N37fcd503.jpg!q50.jpg"
             },
