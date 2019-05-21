@@ -35,4 +35,4 @@ npm run build
 ```
 #### 效果预览
 
-![image](https://github.com/ashHS/vue-shopping/blob/master/src/assets/1558428961344.gif )
+![image](https://github.com/ashHS/vue-shopping/blob/master/1558428961344.gif )
