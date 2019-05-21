@@ -32,4 +32,4 @@ npm run build
 
 优化了用户注册登录功能以及增加了分类页的商品排序功能。
 优化后增加了页面切换动画
-![image](https://github.com/ashHS/vue-shopping/blob/master/src/assets/1558428961344.gif)
+![image](https://github.com/YourAcountName/ProjectName/blob/master/GIFName.gif )
