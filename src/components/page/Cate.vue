@@ -78,6 +78,7 @@
 					this.sorts = this.dataCart.data.sortMethods
 					// console.log(this.)
 					this.allBrand = this.dataCart.data.allBrand
+					console.log(this.allBrand)
 				},(response)=>{
 					//error
 				})

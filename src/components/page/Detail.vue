@@ -68,6 +68,7 @@
 		mounted(){
 			// 获取传过来的动态参数
 			this.id = this.$route.params.id
+			console.log(this.id)
 			this.getDataDetail(this.id);
 			this.$store.commit("changeHeaderTitle",false)
 		},

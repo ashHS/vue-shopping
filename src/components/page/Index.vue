@@ -105,7 +105,7 @@
 					this.isToDetail = true
 					console.log(this.isToDetail)
 					this.$store.commit('isToDetail',this.isToDetail)
-			},
+			}
 		}
 	}
 </script>

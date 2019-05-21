@@ -2,9 +2,7 @@
   <div id="app">
     <Header></Header>
 	<transition :name='slideName' mode="out-in">
-		<keep-alive>
 			<router-view class='change'></router-view>
-		</keep-alive>
 	</transition>
 	<NavBar></NavBar>
   </div>
@@ -58,23 +56,20 @@ a{
 }
 .change{
 	width: 100%;
-	/* height: 100%; */
-	margin:0 0 50px 0;
 	position: absolute;
-	transition: all .1s ease-out;
-	-webkit-transition: all .1s ease-out;
-	-moz-transition: all .1s ease-out;
+	transition: all .1s cubic-bezier(.55,0,.1,1);
+	-webkit-transition: all .1s cubic-bezier(.55,0,.1,1);
+	-moz-transition: all .1s cubic-bezier(.55,0,.1,1);
 }
 .slideLeft-enter,
 .slideRight-leave-active {
-  -webkit-transform: translate(100%, 0%);
-  transform: translate(100%, 0%); 
-   /*当左滑进入右滑进入过渡动画*/
+   -webkit-transform: translate(90%, 0%);
+   transform: translate(90%, 0%); 
 }
  
 .slideLeft-leave-active,
 .slideRight-enter {
-  -webkit-transform: translate(-100%, 0); 
-  transform: translate(-100%, 0); 
+  -webkit-transform: translate(-90%, 0); 
+  transform: translate(-90%, 0); 
 }
 </style>

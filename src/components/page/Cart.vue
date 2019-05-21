@@ -157,11 +157,14 @@
 	.s-cart{
 		/* position: relative; */
 		margin-top: -10px;
+		height: 500px;
+		overflow-y: scroll;
 	}
 	.cart-cont{
-		margin: .25rem 0 4.7rem;
+		margin: .25rem 0 0rem;
 		border-top: 1px solid #eee;
 		background: #fff;
+		height: 100%;
 	}
 	.empty{
 		margin-top: 150px;
@@ -286,7 +289,8 @@
 	}
 	.cart-count{
 	  position: fixed;
-	  bottom: 60px;
+	  /* bottom: 60px; */
+	  margin-bottom: 60px;
 	  z-index: 1;
 	  height: 50px;
 	  line-height: 50px;
